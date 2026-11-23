@@ -1,333 +1,671 @@
-# Plano de desenvolvimento — Project Wheat
+# PLANO.md — Project Wheat
 
-Este documento registra o estado atual confirmado do Project Wheat e organiza as etapas futuras para avaliar e, somente quando aprovado, integrar uma experiência 3D abstrata.
+## 1. Visão do projeto
 
-## 1. Visão geral
+O Project Wheat é um portfólio pessoal desenvolvido para apresentar a trajetória, os conhecimentos, os projetos e a evolução de Bruno Trigo na área de tecnologia.
 
-### Objetivo do Project Wheat
+O projeto utiliza o trigo como metáfora de crescimento: assim como uma semente se desenvolve até se transformar em algo maior, o conhecimento é construído gradualmente por meio de estudo, prática e desenvolvimento de projetos.
 
-O Project Wheat é um portfólio pessoal de Bruno Trigo voltado a tecnologia, aprendizado e projetos. O projeto apresenta uma identidade visual inspirada no trigo como metáfora de crescimento, evolução e formação contínua.
+A proposta é transformar essa identidade em uma experiência visual interativa, combinando um portfólio moderno com uma experiência 3D abstrata integrada à navegação.
 
-### Conceito visual
+### 1.1. Objetivo principal
 
-A identidade atual utiliza uma paleta escura com dourado como cor principal e ciano como elemento de destaque técnico. A interface combina tipografia personalizada, SVGs incorporados, gradientes, cartões, linhas, grades responsivas e efeitos sutis de interação.
+Desenvolver um portfólio visualmente marcante, interativo e responsivo, utilizando:
 
-### Objetivo da experiência 3D
+- HTML5 para a estrutura.
+- CSS3 para a identidade visual e apresentação.
+- JavaScript puro para interações e lógica.
+- Uma solução de renderização 3D, a ser definida durante o planejamento técnico.
 
-A futura experiência 3D deverá representar de forma abstrata a transformação do trigo em tecnologia. Three.js poderá ser avaliado como biblioteca especializada de renderização, sem substituir o HTML, o CSS ou o JavaScript da interface atual.
+A experiência deverá apresentar a evolução do trigo para a tecnologia por meio de uma composição 3D que se transforma conforme o visitante percorre a página.
 
-### Resultado esperado
+### 1.2. Conceito visual escolhido
 
-Ao final da implementação, a experiência deverá evoluir gradualmente durante a rolagem da página, mantendo o conteúdo principal legível e sem comprometer navegação, desempenho ou acessibilidade. A cena 3D deverá funcionar como uma camada complementar ao portfólio, não como uma substituição da interface existente.
+**Direção: abstrata.**
+
+A experiência não deverá representar literalmente uma espiga de trigo ou utilizar um personagem como elemento principal.
+
+A ideia é construir uma composição abstrata inspirada em elementos naturais e tecnológicos.
+
+A narrativa visual deverá explorar:
+
+- Sementes e núcleos.
+- Estruturas orgânicas.
+- Ramificações e crescimento.
+- Partículas e fragmentação.
+- Linhas e conexões.
+- Circuitos e estruturas digitais.
+- Transformação gradual entre natureza e tecnologia.
+
+A identidade visual atual deverá ser preservada, utilizando principalmente:
+
+- Azul-marinho como base.
+- Dourado como representação da origem e do crescimento.
+- Ciano como representação da tecnologia.
+- Tipografia e elementos visuais já existentes.
+
+### 1.3. Resultado esperado
+
+Ao navegar pelo portfólio, o visitante deverá perceber uma experiência visual contínua.
+
+A composição 3D começa representando uma origem orgânica e evolui gradualmente até assumir uma aparência tecnológica.
+
+Essa transformação deverá acompanhar o conteúdo e reforçar a narrativa do portfólio, sem substituir as seções, os textos ou as funcionalidades existentes.
+
+---
 
 ## 2. Estado atual do projeto
 
-O projeto está em HTML5, CSS3 e JavaScript puro. Foi confirmado que a branch atual é `main` e que não existem alterações pendentes antes da criação deste documento.
+O projeto possui uma estrutura baseada em HTML, CSS e JavaScript.
 
-Não foi confirmado nenhum planejamento anterior na raiz do repositório; não existem outros arquivos Markdown ou de texto anteriores a este plano.
+Arquivos principais identificados:
 
-### `index.html`
+- `index.html`: estrutura e conteúdo da página.
+- `style.css`: identidade visual, layout e responsividade.
+- `script.js`: interações e comportamentos da interface.
+- `assets/`: imagens e fontes utilizadas pelo projeto.
 
-Responsável pela estrutura, conteúdo, metadados e SVGs incorporados. O documento possui:
+### 2.1. Estrutura atual da página
 
-- Cabeçalho fixo com logo, menu de navegação e botão "Fale comigo".
-- Seções e IDs reais:
-  - `#inicio`: apresentação principal e ações de navegação.
-  - `#origem`: explicação do nome e simbolismo do trigo.
-  - `#sobre`: apresentação pessoal provisória.
-  - `#aprendendo`: seletor de áreas e cartões de conhecimentos.
-  - `#projetos`: três cartões provisórios de projeto.
-  - `#evolucao`: linha do tempo com os anos 2024, 2025, 2026 e "Próximo".
-  - `#laboratorio`: dois cartões de experimentos provisórios.
-  - `#contato`: links provisórios de contato.
-- Uma seção sem ID, `.statement`, entre `#inicio` e `#origem`.
-- Um `<footer>` com marca, ano e lema.
-- Marcas SVG do trigo no cabeçalho, origem e rodapé.
-- Um SVG de broto na área de conhecimentos.
-- O seletor `#learning-area` e os containers `.learn__summary` e `.learn__list`.
+As seções identificadas são:
 
-A estrutura visual atual não contém uma camada dedicada à experiência 3D.
+| Seção | Identificador | Finalidade |
+|---|---|---|
+| Início | `#inicio` | Apresentação principal |
+| Origem | `#origem` | Simbolismo do nome Project Wheat |
+| Sobre | `#sobre` | Apresentação pessoal |
+| Aprendendo | `#aprendendo` | Conhecimentos e áreas de estudo |
+| Projetos | `#projetos` | Projetos desenvolvidos |
+| Evolução | `#evolucao` | Linha do tempo |
+| Laboratório | `#laboratorio` | Experimentos e estudos |
+| Contato | `#contato` | Formas de contato |
 
-### `style.css`
+Também existe uma seção `.statement`, localizada entre o início e a origem, além do rodapé.
 
-Responsável pela identidade visual, tipografia, espaçamento, layout, responsividade e estados de interação.
+Essa estrutura deverá ser preservada.
 
-O CSS confirma:
+### 2.2. Funcionalidades existentes
 
-- Fontes locais: oito arquivos TTF em `assets/`.
-- Variáveis globais em `:root` para fundo, superfícies, dourado, ciano, texto, bordas e tipografias.
-- Tipografias locais Inter, JetBrains Mono e Sora.
-- Cabeçalho, menu responsivo, botões, hero, seções, cartões, áreas de conhecimento, linha do tempo, contato e rodapé.
-- Layout em grades para duas e três colunas.
-- Responsividade para larguras máximas de 960 px, 1080 px, 600 px e 420 px.
-- Respeito parcial a movimento reduzido por meio de `prefers-reduced-motion`.
-- Destaque visual para estados de foco e interação.
+O projeto já possui:
 
-### `script.js`
+- Menu de navegação responsivo.
+- Controle de abertura e fechamento do menu móvel.
+- Seletor de áreas de conhecimento.
+- Renderização dinâmica de informações sobre conhecimentos.
+- Cartões de projetos e experimentos.
+- Elementos SVG incorporados ao HTML.
+- Identidade visual própria.
+- Layout responsivo.
 
-Responsável pelas interações JavaScript existentes:
+Essas funcionalidades deverão continuar funcionando após a integração da experiência 3D.
 
-- Controle do menu móvel, incluindo abertura, fechamento, texto do botão e atributo `aria-expanded`.
-- Fechamento do menu quando um link é selecionado.
-- Dados das áreas de estudo: Frontend, Backend, Cloud, Inteligência artificial e Automação.
-- Atualização dinâmica de `.learn__summary` e `.learn__list` ao mudar `#learning-area`.
-- Criação dinâmica dos cartões de conhecimento, níveis, projetos vinculados e textos provisórios.
+### 2.3. Situação da experiência 3D
 
-### `assets/`
+A experiência 3D ainda não foi implementada.
 
-Os recursos confirmados são:
+Não considerar como existentes:
 
-- `hero-wheat.png`: imagem da seção inicial.
-- `font-0.ttf` a `font-4.ttf`: fontes Inter e JetBrains Mono.
-- `font-5.ttf` a `font-7.ttf`: pesos da fonte Sora.
+- Cena 3D.
+- Renderizador WebGL.
+- Canvas dedicado à experiência.
+- Animações relacionadas ao scroll.
+- Geometrias ou partículas 3D.
+- Integração com bibliotecas de renderização.
 
-Não há arquivos adicionais de modelo 3D, textura ou vídeo na pasta `assets/`.
+A implementação deverá começar somente após a definição da solução técnica.
 
-### Experiência 3D
+---
 
-A experiência 3D não foi iniciada. Não há Three.js, canvas, WebGL, configuração de cena ou integração com a rolagem no estado atual.
+## 3. Direção da experiência 3D
 
-## 3. Arquitetura e tecnologias
+### 3.1. Ideia central
 
-### HTML
+Criar uma composição 3D abstrata que evolui durante a navegação.
 
-Mantém a estrutura semântica, o conteúdo, os links, os metadados e a hierarquia das seções existentes.
+O visitante não deverá visualizar simplesmente um objeto girando ou uma animação isolada.
 
-### CSS
+A intenção é transmitir uma transformação:
 
-Mantém a identidade visual atual, o posicionamento dos elementos, as camadas, as grades e a responsividade. Qualquer estilo da cena deverá ser integrado sem substituir as classes existentes ou alterar o layout do conteúdo.
+**Origem → Crescimento → Conhecimento → Construção → Tecnologia → Evolução.**
 
-### JavaScript
+A cena deverá ser construída de maneira que seus elementos mudem de forma, posição, distribuição e aparência conforme o progresso da página.
 
-Mantém o controle do menu, o seletor de áreas e as outras interações existentes. Uma futura experiência 3D deverá utilizar módulos ou funções adicionais sem reescrever ou remover o comportamento atual.
+### 3.2. Elementos visuais
 
-### Three.js
+Os elementos poderão incluir:
 
-Three.js poderá ser usado para criar e renderizar a cena 3D caso sua avaliação na Etapa 1 confirme que a solução é adequada ao projeto. O uso da biblioteca não caracteriza frameworks de interface e não deve introduzir React, Vue ou arquitetura de componentes.
+**Origem**
+- Núcleo dourado.
+- Pequenas partículas.
+- Formas geométricas simples.
+- Estruturas orgânicas iniciais.
 
-Não é necessário criar uma nova estrutura de diretórios neste momento. Qualquer nova pasta ou arquivo deverá ser justificado pela implementação aprovada.
+**Crescimento**
+- Ramificações.
+- Linhas curvas.
+- Expansão de partículas.
+- Estruturas que se desenvolvem a partir do núcleo.
 
-## 4. Conceito da experiência 3D
+**Conhecimento**
+- Novas conexões.
+- Ramificações mais complexas.
+- Organização espacial.
+- Formação de estruturas interligadas.
 
-A cena deverá ser abstrata e representar uma transformação gradual do trigo em tecnologia.
+**Transformação**
+- Fragmentação de partes orgânicas.
+- Reorganização de partículas.
+- Substituição gradual de formas naturais.
+- Surgimento de conexões geométricas.
 
-### Elementos previstos
+**Tecnologia**
+- Linhas estruturadas.
+- Nós luminosos.
+- Circuitos.
+- Elementos geométricos.
+- Destaques em ciano.
 
-- Núcleo ou semente dourada como ponto inicial.
-- Estruturas orgânicas que evoquem espigas, hastes e crescimento.
-- Partículas douradas distribuídas no espaço.
-- Linhas e conexões abstratas.
-- Circuitos ou nós tecnológicos em ciano.
-- Superfícies ou formas digitais que substituam gradualmente os elementos orgânicos.
+**Evolução**
+- Composição digital mais complexa.
+- Integração entre linhas, partículas e estruturas.
+- Estado final que represente o amadurecimento da ideia inicial.
 
-### Comportamento visual
+Esses elementos são referências conceituais. O desenho final deverá ser definido durante a implementação visual.
 
-- Deve parecer integrada à página, não flutuar sobre o conteúdo sem relação.
-- Precisa evoluir conforme a navegação.
-- Não deve obscurecer textos, impedir seleções ou interferir em links.
-- Deve usar uma paleta consistente com `--bt-bg`, `--bt-gold-light` e `--bt-cyan`.
-- A composição deve permanecer subordinada ao conteúdo do portfólio.
+---
 
-## 5. Narrativa visual durante a rolagem
+## 4. Narrativa da experiência durante a rolagem
 
-1. **Início — origem e semente:** a experiência pode começar em `#inicio`, com o núcleo dourado e estruturas simples inspiradas no trigo.
-2. **Frase de impacto e origem:** a cena pode apresentar crescimento leve e primeiras ramificações após a seção `.statement` e em `#origem`.
-3. **Sobre:** o foco visual pode preservar o crescimento orgânico e a formação pessoal da seção `#sobre`.
-4. **Conhecimentos:** em `#aprendendo`, estruturas e conexões podem ganhar expansão, ramificação e organização.
-5. **Projetos:** em `#projetos`, a composição pode introduzir elementos tecnológicos dourados e cianos associados à transformação prática.
-6. **Evolução e laboratório:** em `#evolucao` e `#laboratorio`, partículas, linhas e circuitos podem indicar uma composição mais digital.
-7. **Contato:** em `#contato`, a cena deve atingir um encerramento visual equilibrado, sem competir com os links finais.
+A experiência deverá acompanhar as seções existentes, utilizando cada parte do portfólio como referência narrativa.
 
-A associação final deverá ser ajustada pela implementação com base no desempenho real da página.
+### 4.1. Início — `#inicio`
 
-## 6. Etapas de implementação
+Representa a origem.
 
-### Etapa 1 — Preparação
+A cena começa com uma composição simples:
 
-- [x] Inspecionar a arquitetura atual.
-- [ ] Definir o ponto de integração da cena.
-- [ ] Avaliar a biblioteca 3D.
-- [ ] Definir estratégia de carregamento.
+- Núcleo dourado.
+- Poucas partículas.
+- Estruturas orgânicas discretas.
+- Movimento suave.
 
-**Critérios de conclusão:**
+O visitante deverá perceber que algo está começando a se desenvolver.
 
-- Ponto de integração aprovado sem mudanças desnecessárias na estrutura HTML.
-- Decisão registrada sobre uso ou não de Three.js.
-- Estratégia de carregamento compatível com uma página estática.
-- Impacto no carregamento inicial identificado.
+### 4.2. Frase de impacto e origem — `.statement` e `#origem`
 
-### Etapa 2 — Cena 3D básica
+Representa o nascimento da ideia e o significado do trigo.
 
-- [ ] Preparar cena, câmera e renderizador.
-- [ ] Exibir uma primeira forma 3D.
-- [ ] Confirmar funcionamento no navegador.
+A composição começa a ganhar movimento e complexidade.
 
-**Critérios de conclusão:**
+- Expansão do núcleo.
+- Surgimento de ramificações.
+- Partículas se afastando da origem.
+- Primeiras conexões entre elementos.
 
-- Cena inicia sem erros no console.
-- Renderização funciona em pelo menos uma resolução desktop e uma móvel.
-- A página continua navegável e clicável.
+### 4.3. Sobre — `#sobre`
 
-### Etapa 3 — Construção visual
+Representa a formação pessoal.
 
-- [ ] Criar elementos orgânicos.
-- [ ] Criar partículas douradas.
-- [ ] Criar linhas e circuitos ciano.
-- [ ] Ajustar iluminação e composição.
+A estrutura continua crescendo e adquirindo novas formas.
 
-**Critérios de conclusão:**
+A cena deverá transmitir desenvolvimento e continuidade, sem competir com o texto da apresentação.
 
-- Elementos respeitam as cores e a identidade visual existentes.
-- Objetos não sobrepõem nem ocultam o conteúdo.
-- Iluminação não reduz legibilidade ou contraste.
+### 4.4. Aprendendo — `#aprendendo`
 
-### Etapa 4 — Transformação
+Representa a aquisição de conhecimento.
 
-- [ ] Criar a transição entre elementos orgânicos e tecnológicos.
-- [ ] Controlar escala, posição, rotação e distribuição.
-- [ ] Garantir transições suaves.
+A composição começa a apresentar:
 
-**Critérios de conclusão:**
+- Mais ramificações.
+- Conexões entre elementos.
+- Estruturas organizadas.
+- Novos pontos de destaque.
 
-- Todas as transições são contínuas e não apresentam cortes visuais bruscos.
-- A transformação segue a narrativa planejada.
-- Não há mudanças visuais excessivas que prejudiquem a leitura.
+A ideia é representar conhecimentos que se conectam e formam algo maior.
 
-### Etapa 5 — Integração com scroll
+### 4.5. Projetos — `#projetos`
 
-- [ ] Relacionar a evolução da cena às seções existentes.
-- [ ] Evitar cálculos desnecessários durante a rolagem.
-- [ ] Preservar menu e interações atuais.
+Representa a transformação do conhecimento em prática.
 
-**Critérios de conclusão:**
+Os elementos orgânicos começam a dar lugar a estruturas mais geométricas.
 
-- A cena responde à posição das seções reais.
-- A rolagem permanece suave em resoluções testadas.
-- Menu, seletor de área e links continuam funcionando.
+- Fragmentação controlada.
+- Reorganização espacial.
+- Surgimento de linhas.
+- Primeiros elementos tecnológicos em ciano.
+
+### 4.6. Evolução e laboratório — `#evolucao` e `#laboratorio`
+
+Representam a experimentação e a evolução contínua.
+
+A composição passa a ter uma aparência predominantemente tecnológica.
+
+- Circuitos.
+- Nós conectados.
+- Partículas digitais.
+- Linhas organizadas.
+- Formas geométricas interligadas.
+
+### 4.7. Contato — `#contato`
+
+Representa o encerramento da narrativa.
+
+A composição chega ao estado final, mantendo equilíbrio visual e deixando o conteúdo de contato em destaque.
+
+O resultado não deverá ser uma tela excessivamente carregada.
+
+---
+
+## 5. Estratégia de integração com o scroll
+
+A cena deverá funcionar como uma experiência visual contínua, acompanhando a navegação.
+
+A proposta inicial é utilizar uma única cena 3D que evolui ao longo da página, em vez de criar uma cena independente para cada seção.
+
+### 5.1. Comportamento esperado
+
+- A posição da rolagem determina o progresso da transformação.
+- A cena evolui gradualmente.
+- Cada seção funciona como referência narrativa.
+- A transição entre seções não deve provocar mudanças bruscas.
+- A navegação por links e âncoras também deverá posicionar corretamente a experiência.
+- O usuário poderá rolar para cima e observar a transformação inversa.
+
+### 5.2. Estratégia técnica
+
+A implementação poderá utilizar:
+
+- `requestAnimationFrame` para controlar a renderização.
+- `IntersectionObserver` para identificar seções e referências narrativas.
+- Cálculo controlado do progresso da página.
+- Interpolação para suavizar mudanças de posição, escala, rotação e aparência.
+
+A escolha final deverá evitar cálculos pesados e atualizações desnecessárias durante a rolagem.
+
+### 5.3. Posicionamento da cena
+
+A cena deverá ser posicionada de maneira que pareça integrada ao portfólio.
+
+Uma possibilidade é utilizar uma camada visual persistente, enquanto o conteúdo HTML continua ocupando seu espaço normal.
+
+O posicionamento definitivo deverá considerar:
+
+- Hierarquia visual.
+- Legibilidade.
+- Sobreposição de elementos.
+- Navegação.
+- Responsividade.
+- Desempenho.
+
+A cena não poderá bloquear links, botões, seleção de texto ou interações.
+
+---
+
+## 6. Tecnologias e arquitetura
+
+### 6.1. Tecnologias principais
+
+- HTML5.
+- CSS3.
+- JavaScript puro.
+
+A estrutura atual deverá continuar sendo a base do projeto.
+
+### 6.2. Biblioteca 3D
+
+Three.js poderá ser utilizada para a renderização da experiência.
+
+A escolha deverá considerar:
+
+- Facilidade de criação das geometrias.
+- Controle das animações.
+- Integração com JavaScript.
+- Compatibilidade com WebGL.
+- Desempenho.
+- Tamanho da dependência.
+- Facilidade de manutenção.
+
+A biblioteca ainda não está aprovada como dependência obrigatória.
+
+A Etapa 1 deverá confirmar se Three.js é a melhor alternativa ou se existe uma solução mais simples que atenda à proposta.
+
+### 6.3. Organização dos arquivos
+
+A estrutura atual deverá ser preservada inicialmente.
+
+Uma possível organização futura, caso a implementação justifique, seria:
+
+- `index.html`
+- `style.css`
+- `script.js`
+- `assets/`
+- `js/` para módulos JavaScript adicionais.
+- `css/` somente se houver necessidade real de separar arquivos de estilo.
+
+Não reorganizar o projeto apenas por preferência estética.
+
+### 6.4. Separação de responsabilidades
+
+A implementação deverá manter responsabilidades claras:
+
+- HTML: estrutura e conteúdo.
+- CSS: apresentação, camadas e responsividade.
+- JavaScript da interface: menu, seletor e interações existentes.
+- JavaScript da experiência: criação e controle da cena 3D.
+- Renderizador 3D: desenho e atualização dos elementos visuais.
+
+A experiência 3D não deverá tornar o restante do portfólio dependente de sua inicialização.
+
+---
+
+## 7. Etapas de desenvolvimento
+
+O desenvolvimento deverá acontecer de maneira incremental, com validação antes de avançar.
+
+### Etapa 1 — Preparação e definição técnica
+
+Objetivo: definir como a experiência será construída.
+
+Tarefas:
+
+- [ ] Revisar a estrutura atual do projeto.
+- [ ] Identificar o melhor ponto de integração da cena.
+- [ ] Avaliar Three.js.
+- [ ] Comparar alternativas de renderização.
+- [ ] Definir a estratégia de carregamento.
+- [ ] Definir a estratégia de integração com scroll.
+- [ ] Definir a estratégia de posicionamento.
+- [ ] Planejar o fallback sem WebGL.
+
+Critérios de conclusão:
+
+- Solução técnica escolhida e justificada.
+- Arquitetura atual compreendida.
+- Estratégia de integração definida.
+- Impactos iniciais identificados.
+
+Nenhuma dependência deverá ser instalada antes da decisão técnica.
+
+### Etapa 2 — Criação da cena 3D básica
+
+Objetivo: colocar a primeira cena funcionando.
+
+Tarefas:
+
+- [ ] Preparar a estrutura necessária.
+- [ ] Criar a cena.
+- [ ] Configurar a câmera.
+- [ ] Configurar o renderizador.
+- [ ] Criar uma geometria simples.
+- [ ] Exibir a primeira composição.
+- [ ] Ajustar o dimensionamento da cena.
+
+Critérios de conclusão:
+
+- A cena aparece corretamente no navegador.
+- Não existem erros de inicialização.
+- A página continua navegável.
+- A cena não bloqueia interações.
+
+### Etapa 3 — Construção dos elementos visuais
+
+Objetivo: criar os componentes que formarão a narrativa.
+
+Tarefas:
+
+- [ ] Criar o núcleo dourado.
+- [ ] Criar estruturas orgânicas.
+- [ ] Criar ramificações.
+- [ ] Adicionar partículas.
+- [ ] Criar linhas e conexões.
+- [ ] Introduzir elementos tecnológicos.
+- [ ] Ajustar iluminação e profundidade.
+
+Critérios de conclusão:
+
+- Os elementos possuem identidade visual coerente.
+- A composição respeita a paleta existente.
+- O resultado não prejudica a leitura da página.
+- A cena apresenta uma composição visual reconhecível.
+
+### Etapa 4 — Transformação orgânica para tecnológica
+
+Objetivo: implementar a transformação visual principal.
+
+Tarefas:
+
+- [ ] Definir o estado inicial orgânico.
+- [ ] Definir o estado intermediário de transformação.
+- [ ] Definir o estado tecnológico.
+- [ ] Controlar a posição dos elementos.
+- [ ] Controlar escala e rotação.
+- [ ] Controlar a fragmentação e reorganização.
+- [ ] Criar transições suaves entre os estados.
+
+Critérios de conclusão:
+
+- A transformação pode ser observada de forma contínua.
+- Os elementos não desaparecem ou surgem de maneira desordenada.
+- A narrativa visual fica clara.
+- O resultado funciona tanto na progressão quanto no retorno da rolagem.
+
+### Etapa 5 — Integração com a rolagem
+
+Objetivo: conectar a transformação à navegação.
+
+Tarefas:
+
+- [ ] Relacionar o progresso do scroll com a cena.
+- [ ] Utilizar as seções como referências narrativas.
+- [ ] Ajustar a evolução visual por trecho da página.
+- [ ] Suavizar as transições.
+- [ ] Tratar navegação por âncoras.
+- [ ] Evitar cálculos desnecessários.
+- [ ] Preservar as interações existentes.
+
+Critérios de conclusão:
+
+- A cena acompanha a rolagem.
+- A transformação é progressiva.
+- A navegação para cima e para baixo funciona.
+- Menu e seletor continuam funcionando.
+- A rolagem não apresenta travamentos perceptíveis nos dispositivos testados.
 
 ### Etapa 6 — Responsividade
 
-- [ ] Adaptar a cena para desktop, tablet e celular.
-- [ ] Reduzir partículas e efeitos em dispositivos limitados.
-- [ ] Garantir que o conteúdo continue legível.
+Objetivo: adaptar a experiência a diferentes dispositivos.
 
-**Critérios de conclusão:**
+Tarefas:
 
-- A cena foi testada em tamanhos desktop, tablet e celular.
-- Quantidade de elementos e consumo visual são adequados a telas menores.
-- Nenhum conteúdo fica obstruído ou inutilizável.
+- [ ] Testar desktop.
+- [ ] Testar tablet.
+- [ ] Testar celular.
+- [ ] Ajustar posição da cena.
+- [ ] Reduzir partículas quando necessário.
+- [ ] Ajustar resolução do renderizador.
+- [ ] Reduzir efeitos visuais em dispositivos limitados.
+- [ ] Preservar legibilidade e navegação.
+
+Critérios de conclusão:
+
+- O portfólio continua funcional em diferentes resoluções.
+- A cena não prejudica o conteúdo.
+- A experiência não exige o mesmo nível de processamento em todos os dispositivos.
 
 ### Etapa 7 — Acessibilidade e desempenho
 
+Objetivo: garantir que a experiência seja utilizável e eficiente.
+
+Tarefas:
+
 - [ ] Respeitar `prefers-reduced-motion`.
-- [ ] Tratar indisponibilidade de WebGL.
-- [ ] Evitar bloquear cliques e navegação.
-- [ ] Avaliar consumo de memória e processamento.
-- [ ] Prever alternativa visual sem 3D.
+- [ ] Criar alternativa visual para ausência de WebGL.
+- [ ] Garantir que o canvas não bloqueie interações.
+- [ ] Controlar consumo de memória.
+- [ ] Liberar recursos gráficos quando necessário.
+- [ ] Avaliar FPS.
+- [ ] Observar consumo de CPU e GPU.
+- [ ] Avaliar impacto no carregamento inicial.
+- [ ] Ajustar a complexidade da cena.
 
-**Critérios de conclusão:**
+Critérios de conclusão:
 
-- Movimento reduzido desativa ou simplifica a animação.
-- Navegadores sem WebGL exibem uma alternativa visual ou continuam com o portfólio comum.
-- Cliques e navegação não são bloqueados por overlays ou canvas.
-- Consumo de memória e processamento foi observado e documentado.
+- Movimento reduzido é respeitado.
+- O portfólio continua funcional sem WebGL.
+- Não existem bloqueios de navegação.
+- O consumo de recursos foi avaliado.
+- Os resultados dos testes foram registrados.
 
 ### Etapa 8 — Testes e finalização
 
+Objetivo: validar a experiência integrada.
+
+Tarefas:
+
 - [ ] Testar todas as seções.
-- [ ] Testar a sincronização com a rolagem.
+- [ ] Testar a rolagem completa.
+- [ ] Testar a navegação por âncoras.
+- [ ] Testar o retorno da rolagem.
+- [ ] Testar o menu.
+- [ ] Testar o seletor de conhecimentos.
 - [ ] Testar diferentes resoluções.
-- [ ] Verificar console do navegador.
-- [ ] Verificar regressões nas funcionalidades existentes.
+- [ ] Testar movimento reduzido.
+- [ ] Testar fallback.
+- [ ] Verificar o console.
+- [ ] Corrigir regressões.
 
-**Critérios de conclusão:**
+Critérios de conclusão:
 
-- Todas as seções são renderizadas corretamente.
-- Scroll, menu e seletor foram testados após a integração.
-- Desktop e dispositivos móveis foram validados.
-- Não há erros no console.
-- Nenhuma funcionalidade existente apresentou regressão.
+- Todas as seções continuam funcionando.
+- A cena acompanha corretamente a navegação.
+- A identidade visual está preservada.
+- A experiência funciona nos dispositivos testados.
+- Não existem erros conhecidos que impeçam o uso.
+- Os resultados da validação foram registrados.
 
-## 7. Critérios de conclusão
+---
 
-Uma etapa só poderá ser marcada como concluída após implementação correspondente e validação registrada.
+## 8. Acessibilidade e desempenho como requisitos permanentes
 
-Os critérios gerais são:
+Esses requisitos deverão ser considerados desde a primeira implementação, e não somente na etapa final.
 
-- [ ] Implementação aplicada sem remover ou substituir elementos existentes.
-- [ ] Layout atual preservado.
-- [ ] Conteúdo atual preservado.
-- [ ] Menu responsivo validado.
-- [ ] Seletor de áreas validado.
-- [ ] Links e destinos existentes validados.
-- [ ] Teste desktop concluído.
-- [ ] Teste tablet concluído.
-- [ ] Teste celular concluído.
-- [ ] Console sem erros.
-- [ ] WebGL indisponível tratado.
-- [ ] Movimento reduzido respeitado.
-- [ ] Custos de desempenho avaliados.
+### 8.1. Acessibilidade
 
-## 8. Regras de preservação
+- O conteúdo principal deverá continuar disponível em HTML.
+- A experiência 3D será decorativa e complementar.
+- O canvas não deverá receber foco desnecessariamente.
+- Os controles existentes deverão continuar acessíveis.
+- O movimento reduzido deverá simplificar ou desativar animações.
+- A ausência de WebGL não poderá impedir a navegação.
 
-- Preservar a estrutura HTML atual e a hierarquia das seções.
-- Preservar nomes de classes e IDs utilizados pelo CSS e pelo JavaScript.
-- Não migrar o projeto para frameworks de interface.
-- Não remover menu, seletor de áreas, links ou outras funcionalidades existentes.
-- Não substituir arquivos inteiros quando uma alteração localizada for suficiente.
-- Não alterar textos, identidade visual ou destinos sem justificativa explícita.
-- Não criar novas seções apenas para acomodar a experiência 3D.
-- Não implementar funcionalidades fora do planejamento aprovado.
-- Não antecipar etapas futuras sem concluir e validar a etapa anterior.
-- Não modificar `assets/` sem necessidade comprovada pela implementação.
-- Não instalar dependências durante o planejamento; Three.js deverá ser avaliado antes de qualquer integração.
+### 8.2. Desempenho
 
-## 9. Acompanhamento
+- Evitar geometrias desnecessariamente complexas.
+- Evitar quantidade excessiva de partículas.
+- Evitar criar novos objetos continuamente durante a animação.
+- Controlar a frequência de atualização.
+- Ajustar a resolução do renderizador conforme o dispositivo.
+- Liberar geometrias, materiais e texturas quando deixarem de ser utilizados.
+- Avaliar o impacto da cena no carregamento inicial.
 
-### Checklist das etapas
+---
 
-- [ ] Etapa 1 — Preparação
-- [ ] Etapa 2 — Cena 3D básica
-- [ ] Etapa 3 — Construção visual
-- [ ] Etapa 4 — Transformação
-- [ ] Etapa 5 — Integração com scroll
-- [ ] Etapa 6 — Responsividade
-- [ ] Etapa 7 — Acessibilidade e desempenho
-- [ ] Etapa 8 — Testes e finalização
+## 9. Regras de preservação
 
-### Pendências
+Durante todo o desenvolvimento:
 
-- Confirmar o ponto exato da cena na página.
-- Decidir se Three.js será usado.
-- Definir a estratégia de carregamento.
-- Definir o tamanho e a quantidade de elementos da cena.
-- Escolher como tratar navegadores sem WebGL.
-- Registrar resultados de testes de desempenho.
+1. Preservar HTML, CSS e JavaScript como tecnologias principais.
+2. Não migrar o projeto para frameworks de interface.
+3. Preservar a estrutura atual das seções.
+4. Preservar IDs e classes utilizados pela interface.
+5. Não remover funcionalidades existentes.
+6. Não alterar conteúdos sem necessidade ou decisão aprovada.
+7. Não criar novas seções apenas para acomodar a experiência 3D.
+8. Não substituir arquivos inteiros quando uma alteração localizada resolver.
+9. Não implementar etapas futuras antes da validação da etapa atual.
+10. Não instalar dependências sem justificativa técnica.
+11. Não deixar a experiência 3D impedir o funcionamento do portfólio.
+12. Não marcar etapas como concluídas sem implementação e testes.
 
-### Decisões técnicas
+---
 
-- Tecnologia base: HTML5, CSS3 e JavaScript puro.
-- Biblioteca 3D: a utilização de Three.js permanece pendente de avaliação.
-- Estrutura de diretórios: nenhuma reorganização foi aprovada nesta tarefa.
-- Experiência 3D: não iniciada.
-- Identidade visual: permanecer com dourado, ciano, azul escuro e tipografia atual até haver justificativa para mudanças.
+## 10. Critérios gerais de qualidade
 
-### Registro de validações
+A experiência será considerada satisfatória quando:
 
-- Inspeção da arquitetura atual concluída.
-- Arquivos principais confirmados: `index.html`, `style.css` e `script.js`.
-- Arquivos de recursos confirmados em `assets/`.
-- Nenhum documento de planejamento existente confirmado antes deste plano.
-- Nenhuma implementação 3D existente confirmada.
-- Branch atual confirmada como `main`.
-- Estado local confirmado sem alterações pendentes antes da criação deste plano.
+- [ ] A identidade visual do Project Wheat estiver preservada.
+- [ ] A narrativa de origem, crescimento e tecnologia estiver clara.
+- [ ] A transformação for integrada à rolagem.
+- [ ] A cena não competir com o conteúdo.
+- [ ] A navegação continuar funcionando.
+- [ ] O menu responsivo continuar funcionando.
+- [ ] O seletor de conhecimentos continuar funcionando.
+- [ ] O layout continuar responsivo.
+- [ ] O movimento reduzido for respeitado.
+- [ ] A ausência de WebGL for tratada.
+- [ ] O desempenho tiver sido avaliado.
+- [ ] Os testes finais tiverem sido registrados.
 
-### Critérios para avançar de etapa
+---
 
-Uma etapa só pode avançar quando:
+## 11. Acompanhamento do projeto
 
-1. Todas as tarefas da etapa tiverem sido implementadas.
-2. Os critérios objetivos da etapa tiverem sido validados.
-3. Os testes relevantes tiverem sido registrados.
-4. Nenhuma funcionalidade existente tiver sido perdida.
-5. O resultado tiver sido revisado antes de iniciar a etapa seguinte.
+### 11.1. Checklist geral
+
+- [ ] Etapa 1 — Preparação e definição técnica.
+- [ ] Etapa 2 — Cena 3D básica.
+- [ ] Etapa 3 — Construção dos elementos visuais.
+- [ ] Etapa 4 — Transformação orgânica para tecnológica.
+- [ ] Etapa 5 — Integração com scroll.
+- [ ] Etapa 6 — Responsividade.
+- [ ] Etapa 7 — Acessibilidade e desempenho.
+- [ ] Etapa 8 — Testes e finalização.
+
+### 11.2. Registro de decisões técnicas
+
+As decisões abaixo deverão ser preenchidas durante o desenvolvimento:
+
+| Decisão | Situação |
+|---|---|
+| Biblioteca de renderização | Pendente |
+| Estratégia de composição da cena | Pendente |
+| Posicionamento da cena | Pendente |
+| Integração com scroll | Pendente |
+| Estratégia de carregamento | Pendente |
+| Fallback sem WebGL | Pendente |
+| Otimização para dispositivos móveis | Pendente |
+
+### 11.3. Registro de validações
+
+Cada etapa deverá registrar:
+
+- O que foi implementado.
+- Quais arquivos foram alterados.
+- Quais testes foram realizados.
+- Quais resultados foram observados.
+- Quais problemas foram encontrados.
+- Quais correções foram aplicadas.
+
+Nenhum resultado deverá ser registrado sem evidência.
+
+### 11.4. Critérios para avançar
+
+Uma etapa somente poderá ser considerada concluída quando:
+
+1. As tarefas previstas tiverem sido implementadas.
+2. Os critérios de conclusão tiverem sido verificados.
+3. Os testes correspondentes tiverem sido realizados.
+4. As funcionalidades anteriores continuarem funcionando.
+5. O resultado tiver sido revisado.
+
+---
+
+## 12. Direção final
+
+O Project Wheat deverá transmitir uma ideia simples por meio de uma experiência visual marcante:
+
+**Tudo começa com uma semente. O conhecimento faz crescer. A prática transforma. A tecnologia permite evoluir.**
+
+A experiência 3D abstrata será o elemento visual que conecta essa narrativa ao portfólio, acompanhando o visitante durante a navegação sem retirar o protagonismo do conteúdo.
+
+O desenvolvimento deverá priorizar qualidade visual, simplicidade arquitetural, aprendizado durante a implementação e preservação das funcionalidades existentes.
