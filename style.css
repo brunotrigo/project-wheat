@@ -335,6 +335,7 @@ body.bt,
 .hero {
   position: relative;
   overflow: hidden;
+  background-color: #252d37;
   min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
