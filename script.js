@@ -103,7 +103,7 @@ const areasDeAprendizagem = [
   },
 ];
 const heroVideo = document.querySelector(".hero__video");
-if (heroVideo) heroVideo.playbackRate = 0.75;
+if (heroVideo) heroVideo.playbackRate = 0.65;
 
 const botaoMenu = document.querySelector(".menu-toggle");
 const menu = document.querySelector("#menu");
