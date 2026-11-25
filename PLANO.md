@@ -29,13 +29,14 @@ A ideia é construir uma composição abstrata inspirada em elementos naturais e
 
 A narrativa visual deverá explorar:
 
-- Sementes e núcleos.
-- Estruturas orgânicas.
-- Ramificações e crescimento.
-- Partículas e fragmentação.
-- Linhas e conexões.
-- Circuitos e estruturas digitais.
-- Transformação gradual entre natureza e tecnologia.
+- Um núcleo ou semente dourada como origem.
+- Estruturas orgânicas abstratas que remetam ao crescimento do trigo, sem representar literalmente uma espiga.
+- Ramificações e partículas que se expandem a partir do núcleo.
+- Fragmentação e reorganização progressiva das estruturas orgânicas.
+- Linhas, conexões, nós e circuitos tecnológicos em ciano.
+- Uma composição final predominantemente digital.
+
+A transformação dos elementos orgânicos em estruturas tecnológicas é o elemento principal da experiência, e não apenas a presença de objetos 3D decorativos.
 
 A identidade visual atual deverá ser preservada, utilizando principalmente:
 
@@ -48,7 +49,7 @@ A identidade visual atual deverá ser preservada, utilizando principalmente:
 
 Ao navegar pelo portfólio, o visitante deverá perceber uma experiência visual contínua.
 
-A composição 3D começa representando uma origem orgânica e evolui gradualmente até assumir uma aparência tecnológica.
+A composição 3D começa com uma semente dourada e estruturas orgânicas abstratas, que se expandem, fragmentam e se reorganizam gradualmente até formar uma composição predominantemente digital.
 
 Essa transformação deverá acompanhar o conteúdo e reforçar a narrativa do portfólio, sem substituir as seções, os textos ou as funcionalidades existentes.
 
@@ -124,26 +125,28 @@ Criar uma composição 3D abstrata que evolui durante a navegação.
 
 O visitante não deverá visualizar simplesmente um objeto girando ou uma animação isolada.
 
-A intenção é transmitir uma transformação:
+A intenção é representar visualmente a transformação do trigo em tecnologia:
 
 **Origem → Crescimento → Conhecimento → Construção → Tecnologia → Evolução.**
 
-A cena deverá ser construída de maneira que seus elementos mudem de forma, posição, distribuição e aparência conforme o progresso da página.
+A cena deverá acompanhar a evolução da página de maneira contínua. Seus elementos mudam progressivamente de forma, posição, distribuição e aparência com o avanço da rolagem; a experiência não deverá se limitar a mudanças bruscas ao entrar em cada seção.
+
+As seções existentes são referências narrativas para orientar a transformação, não limites que exijam reiniciar a cena ou trocar abruptamente sua aparência.
 
 ### 3.2. Elementos visuais
 
 Os elementos poderão incluir:
 
 **Origem**
-- Núcleo dourado.
+- Núcleo ou semente dourada.
 - Pequenas partículas.
 - Formas geométricas simples.
-- Estruturas orgânicas iniciais.
+- Estruturas orgânicas abstratas que remetam ao crescimento do trigo, sem reproduzir uma espiga realista.
 
 **Crescimento**
 - Ramificações.
 - Linhas curvas.
-- Expansão de partículas.
+- Partículas que se expandem a partir do núcleo.
 - Estruturas que se desenvolvem a partir do núcleo.
 
 **Conhecimento**
@@ -153,10 +156,10 @@ Os elementos poderão incluir:
 - Formação de estruturas interligadas.
 
 **Transformação**
-- Fragmentação de partes orgânicas.
-- Reorganização de partículas.
-- Substituição gradual de formas naturais.
-- Surgimento de conexões geométricas.
+- Fragmentação progressiva de estruturas orgânicas.
+- Mudança gradual de posição e escala.
+- Reorganização de partículas e estruturas.
+- Formação progressiva de linhas, conexões, nós e circuitos em ciano.
 
 **Tecnologia**
 - Linhas estruturadas.
@@ -164,6 +167,7 @@ Os elementos poderão incluir:
 - Circuitos.
 - Elementos geométricos.
 - Destaques em ciano.
+- Composição final predominantemente digital.
 
 **Evolução**
 - Composição digital mais complexa.
@@ -177,6 +181,8 @@ Esses elementos são referências conceituais. O desenho final deverá ser defin
 ## 4. Narrativa da experiência durante a rolagem
 
 A experiência deverá acompanhar as seções existentes, utilizando cada parte do portfólio como referência narrativa.
+
+Os momentos descritos abaixo indicam ênfases narrativas progressivas, não mudanças pontuais ou reinicializações da cena.
 
 ### 4.1. Início — `#inicio`
 
@@ -260,33 +266,33 @@ O resultado não deverá ser uma tela excessivamente carregada.
 
 A cena deverá funcionar como uma experiência visual contínua, acompanhando a navegação.
 
-A proposta inicial é utilizar uma única cena 3D que evolui ao longo da página, em vez de criar uma cena independente para cada seção.
+A direção a avaliar é utilizar uma cena contínua compartilhada entre as seções, em vez de criar uma cena independente para cada seção. A transformação deverá responder progressivamente à posição da rolagem; as referências de cada seção orientarão a narrativa sem provocar mudanças bruscas de aparência.
 
 ### 5.1. Comportamento esperado
 
 - A posição da rolagem determina o progresso da transformação.
-- A cena evolui gradualmente.
-- Cada seção funciona como referência narrativa.
+- A cena evolui gradualmente em uma sequência contínua.
+- Cada seção funciona como referência narrativa, não como um estado isolado que substitui a cena.
 - A transição entre seções não deve provocar mudanças bruscas.
 - A navegação por links e âncoras também deverá posicionar corretamente a experiência.
 - O usuário poderá rolar para cima e observar a transformação inversa.
 
 ### 5.2. Estratégia técnica
 
-A implementação poderá utilizar:
+A implementação deverá relacionar a posição da rolagem a um progresso contínuo de transformação. A solução técnica para obter esse progresso ainda deverá ser definida. Poderão ser avaliados:
 
 - `requestAnimationFrame` para controlar a renderização.
 - `IntersectionObserver` para identificar seções e referências narrativas.
-- Cálculo controlado do progresso da página.
-- Interpolação para suavizar mudanças de posição, escala, rotação e aparência.
+- Cálculo controlado do progresso da página e de suas referências narrativas.
+- Interpolação para mudanças contínuas de posição, escala, rotação e aparência.
 
-A escolha final deverá evitar cálculos pesados e atualizações desnecessárias durante a rolagem.
+A escolha final deverá evitar cálculos pesados e atualizações desnecessárias durante a rolagem, e será registrada na Etapa 1 antes da implementação.
 
 ### 5.3. Posicionamento da cena
 
 A cena deverá ser posicionada de maneira que pareça integrada ao portfólio.
 
-Uma possibilidade é utilizar uma camada visual persistente, enquanto o conteúdo HTML continua ocupando seu espaço normal.
+Uma possibilidade a avaliar é utilizar uma camada visual controlada e persistente, enquanto o conteúdo HTML continua ocupando seu espaço normal. Posicionamento fixo ou outra estratégia de composição deverão ser comparados conforme a arquitetura e os testes; esta decisão não está antecipada.
 
 O posicionamento definitivo deverá considerar:
 
@@ -296,8 +302,9 @@ O posicionamento definitivo deverá considerar:
 - Navegação.
 - Responsividade.
 - Desempenho.
+- Compatibilidade com as interações e a estrutura HTML existentes.
 
-A cena não poderá bloquear links, botões, seleção de texto ou interações.
+A camada visual não poderá cobrir indevidamente o conteúdo nem bloquear links, botões, seleção de texto ou outras interações.
 
 ---
 
@@ -309,25 +316,28 @@ A cena não poderá bloquear links, botões, seleção de texto ou interações.
 - CSS3.
 - JavaScript puro.
 
-A estrutura atual deverá continuar sendo a base do projeto.
+A estrutura estática atual, baseada em `index.html`, `style.css` e `script.js`, deverá continuar sendo a base do projeto. A cena 3D será complementar ao conteúdo e não substituirá a estrutura do portfólio.
 
 ### 6.2. Biblioteca 3D
 
-Three.js poderá ser utilizada para a renderização da experiência.
+Three.js é uma possibilidade para a renderização da experiência, não uma dependência aprovada. A Etapa 1 deverá comparar as alternativas antes de escolher uma solução:
 
-A escolha deverá considerar:
+| Alternativa a avaliar | Questões da comparação |
+|---|---|
+| Three.js | Adequação à cena, impacto no carregamento inicial, compatibilidade com a estrutura estática, manutenção e desempenho em dispositivos móveis. |
+| WebGL sem biblioteca 3D | Se o controle direto necessário é viável para a complexidade visual prevista e qual seria o custo de manutenção. |
+| Solução sem biblioteca 3D | Se CSS, SVG ou Canvas 2D podem representar a transformação com complexidade e custo menores, sem comprometer a proposta visual. |
 
-- Facilidade de criação das geometrias.
-- Controle das animações.
-- Integração com JavaScript.
-- Compatibilidade com WebGL.
-- Desempenho.
-- Tamanho da dependência.
-- Facilidade de manutenção.
+A comparação deverá considerar, para as alternativas aplicáveis:
 
-A biblioteca ainda não está aprovada como dependência obrigatória.
+- Adequação à transformação visual pretendida.
+- Impacto da biblioteca ou solução no carregamento inicial.
+- Compatibilidade com a estrutura estática atual.
+- Complexidade de desenvolvimento e manutenção.
+- Desempenho em dispositivos móveis e com recursos limitados.
+- Estratégia de carregamento e fallback.
 
-A Etapa 1 deverá confirmar se Three.js é a melhor alternativa ou se existe uma solução mais simples que atenda à proposta.
+A decisão entre Three.js, outra abordagem de renderização ou uma solução sem biblioteca deverá ser registrada na Etapa 1. Não introduzir React, Vue, Angular, Next.js ou outro framework de interface.
 
 ### 6.3. Organização dos arquivos
 
@@ -369,22 +379,21 @@ Objetivo: definir como a experiência será construída.
 Tarefas:
 
 - [ ] Revisar a estrutura atual do projeto.
-- [ ] Identificar o melhor ponto de integração da cena.
-- [ ] Avaliar Three.js.
-- [ ] Comparar alternativas de renderização.
-- [ ] Definir a estratégia de carregamento.
-- [ ] Definir a estratégia de integração com scroll.
-- [ ] Definir a estratégia de posicionamento.
-- [ ] Planejar o fallback sem WebGL.
+- [ ] Comparar Three.js, WebGL sem biblioteca 3D e a possibilidade de uma solução sem biblioteca 3D.
+- [ ] Avaliar impacto no carregamento inicial, compatibilidade com a estrutura estática, manutenção e desempenho em dispositivos móveis.
+- [ ] Decidir se Three.js será utilizado ou se outra alternativa atende melhor à experiência.
+- [ ] Definir a estratégia de composição e posicionamento da cena, considerando uma camada visual controlada que não cubra o conteúdo nem bloqueie interações.
+- [ ] Definir como a cena será carregada sem prejudicar a apresentação inicial do conteúdo.
+- [ ] Definir como a posição da rolagem será convertida em progresso contínuo da transformação, usando as seções existentes como referências narrativas.
+- [ ] Definir a estratégia de fallback, incluindo o comportamento quando WebGL não estiver disponível.
 
 Critérios de conclusão:
 
-- Solução técnica escolhida e justificada.
-- Arquitetura atual compreendida.
-- Estratégia de integração definida.
-- Impactos iniciais identificados.
+- Alternativas comparadas e decisão técnica documentada, incluindo justificativa.
+- Estratégias de composição, posicionamento, carregamento, integração com rolagem e fallback documentadas.
+- Compatibilidade com a arquitetura atual e impactos esperados identificados.
 
-Nenhuma dependência deverá ser instalada antes da decisão técnica.
+Nenhuma dependência ou implementação da experiência deverá ser adicionada antes da decisão técnica.
 
 ### Etapa 2 — Criação da cena 3D básica
 
@@ -398,14 +407,18 @@ Tarefas:
 - [ ] Configurar o renderizador.
 - [ ] Criar uma geometria simples.
 - [ ] Exibir a primeira composição.
-- [ ] Ajustar o dimensionamento da cena.
+- [ ] Dimensionar a cena conforme o espaço disponível e tratar redimensionamentos.
+- [ ] Validar a inicialização e o encerramento do renderizador e o descarte dos recursos correspondentes.
+- [ ] Validar a compatibilidade com a estrutura HTML existente.
+- [ ] Separar a camada visual dos elementos interativos da página.
 
 Critérios de conclusão:
 
 - A cena aparece corretamente no navegador.
-- Não existem erros de inicialização.
+- A inicialização, o redimensionamento e o encerramento funcionam sem erros observados.
 - A página continua navegável.
-- A cena não bloqueia interações.
+- A camada visual não cobre indevidamente o conteúdo nem bloqueia interações.
+- A cena funciona junto à estrutura HTML existente.
 
 ### Etapa 3 — Construção dos elementos visuais
 
@@ -413,13 +426,20 @@ Objetivo: criar os componentes que formarão a narrativa.
 
 Tarefas:
 
-- [ ] Criar o núcleo dourado.
-- [ ] Criar estruturas orgânicas.
-- [ ] Criar ramificações.
-- [ ] Adicionar partículas.
-- [ ] Criar linhas e conexões.
-- [ ] Introduzir elementos tecnológicos.
-- [ ] Ajustar iluminação e profundidade.
+- [ ] Criar e validar visualmente o núcleo ou semente dourada.
+- [ ] Criar e validar estruturas orgânicas abstratas que remetam ao crescimento do trigo.
+- [ ] Acrescentar e validar ramificações e partículas que se expandem.
+- [ ] Acrescentar e validar linhas e conexões.
+- [ ] Introduzir progressivamente nós, circuitos e outros elementos tecnológicos em ciano.
+- [ ] Ajustar iluminação e profundidade conforme a composição for construída.
+
+Construir os elementos nesta sequência, validando visualmente cada incremento antes de avançar; não é necessário criar todos de uma vez.
+
+1. Núcleo ou semente dourada.
+2. Estruturas orgânicas abstratas.
+3. Ramificações e partículas.
+4. Linhas e conexões.
+5. Elementos tecnológicos em ciano.
 
 Critérios de conclusão:
 
@@ -437,17 +457,21 @@ Tarefas:
 - [ ] Definir o estado inicial orgânico.
 - [ ] Definir o estado intermediário de transformação.
 - [ ] Definir o estado tecnológico.
-- [ ] Controlar a posição dos elementos.
-- [ ] Controlar escala e rotação.
-- [ ] Controlar a fragmentação e reorganização.
-- [ ] Criar transições suaves entre os estados.
+- [ ] Fragmentar progressivamente as estruturas orgânicas.
+- [ ] Alterar gradualmente a posição e a escala dos elementos.
+- [ ] Reorganizar as partículas ao longo da transformação.
+- [ ] Formar progressivamente conexões, nós e circuitos tecnológicos.
+- [ ] Controlar a transição por um progresso de animação contínuo e coerente entre os estados.
 
 Critérios de conclusão:
 
 - A transformação pode ser observada de forma contínua.
 - Os elementos não desaparecem ou surgem de maneira desordenada.
+- A fragmentação, o reposicionamento, a reorganização e a formação tecnológica pertencem à mesma transformação progressiva.
 - A narrativa visual fica clara.
 - O resultado funciona tanto na progressão quanto no retorno da rolagem.
+
+Evitar depender de várias animações independentes e desconectadas.
 
 ### Etapa 5 — Integração com a rolagem
 
@@ -455,20 +479,21 @@ Objetivo: conectar a transformação à navegação.
 
 Tarefas:
 
-- [ ] Relacionar o progresso do scroll com a cena.
-- [ ] Utilizar as seções como referências narrativas.
-- [ ] Ajustar a evolução visual por trecho da página.
-- [ ] Suavizar as transições.
-- [ ] Tratar navegação por âncoras.
-- [ ] Evitar cálculos desnecessários.
-- [ ] Preservar as interações existentes.
+- [ ] Relacionar progressivamente a posição da rolagem ao progresso da transformação.
+- [ ] Utilizar as seções existentes como referências narrativas, mantendo uma cena contínua compartilhada.
+- [ ] Suavizar as transições sem trocar abruptamente a aparência ao entrar em uma seção.
+- [ ] Tratar navegação direta por âncoras e menu sem saltos visuais na cena.
+- [ ] Evitar atualizações desnecessárias e cálculos pesados a cada evento de rolagem.
+- [ ] Preservar o funcionamento do menu e do seletor de conhecimentos.
 
 Critérios de conclusão:
 
 - A cena acompanha a rolagem.
 - A transformação é progressiva.
+- A composição permanece contínua entre as seções e responde corretamente à posição da rolagem.
 - A navegação para cima e para baixo funciona.
-- Menu e seletor continuam funcionando.
+- Navegar diretamente para uma seção por âncora ou menu não causa saltos visuais inesperados.
+- Menu e seletor de conhecimentos continuam funcionando.
 - A rolagem não apresenta travamentos perceptíveis nos dispositivos testados.
 
 ### Etapa 6 — Responsividade
@@ -480,17 +505,19 @@ Tarefas:
 - [ ] Testar desktop.
 - [ ] Testar tablet.
 - [ ] Testar celular.
-- [ ] Ajustar posição da cena.
-- [ ] Reduzir partículas quando necessário.
-- [ ] Ajustar resolução do renderizador.
-- [ ] Reduzir efeitos visuais em dispositivos limitados.
+- [ ] Ajustar o enquadramento e a composição da cena em diferentes telas.
+- [ ] Adaptar a quantidade de partículas e a complexidade geométrica conforme o dispositivo.
+- [ ] Adaptar a resolução do renderizador.
+- [ ] Adaptar efeitos visuais e iluminação conforme os recursos disponíveis.
+- [ ] Simplificar ou desativar partes da cena em dispositivos com recursos limitados, quando necessário.
 - [ ] Preservar legibilidade e navegação.
 
 Critérios de conclusão:
 
 - O portfólio continua funcional em diferentes resoluções.
 - A cena não prejudica o conteúdo.
-- A experiência não exige o mesmo nível de processamento em todos os dispositivos.
+- O custo visual e de processamento pode ser diferente entre desktop, telas menores e dispositivos limitados.
+- Os ajustes realizados e os dispositivos testados são registrados.
 
 ### Etapa 7 — Acessibilidade e desempenho
 
@@ -499,22 +526,21 @@ Objetivo: garantir que a experiência seja utilizável e eficiente.
 Tarefas:
 
 - [ ] Respeitar `prefers-reduced-motion`.
-- [ ] Criar alternativa visual para ausência de WebGL.
-- [ ] Garantir que o canvas não bloqueie interações.
-- [ ] Controlar consumo de memória.
-- [ ] Liberar recursos gráficos quando necessário.
-- [ ] Avaliar FPS.
-- [ ] Observar consumo de CPU e GPU.
-- [ ] Avaliar impacto no carregamento inicial.
-- [ ] Ajustar a complexidade da cena.
+- [ ] Definir e validar uma alternativa visual quando WebGL não estiver disponível.
+- [ ] Verificar que a camada visual não bloqueia cliques nem seleção de texto.
+- [ ] Tratar redimensionamento e descarte dos recursos gráficos.
+- [ ] Medir e registrar FPS, uso de CPU/GPU, memória e impacto no carregamento inicial nos dispositivos testados.
+- [ ] Avaliar a possibilidade de simplificar ou desativar a cena em dispositivos limitados.
+- [ ] Ajustar a complexidade da cena com base nos resultados medidos.
 
 Critérios de conclusão:
 
-- Movimento reduzido é respeitado.
-- O portfólio continua funcional sem WebGL.
-- Não existem bloqueios de navegação.
-- O consumo de recursos foi avaliado.
-- Os resultados dos testes foram registrados.
+- `prefers-reduced-motion` foi respeitado e testado.
+- A alternativa visual foi verificada quando WebGL não está disponível.
+- Cliques, seleção de texto e navegação não são bloqueados pela camada visual.
+- Redimensionamento e descarte de recursos gráficos foram verificados.
+- FPS, CPU/GPU, memória e carregamento inicial foram avaliados e registrados, sem impor metas numéricas antes das medições.
+- A possibilidade de simplificação ou desativação em dispositivos limitados foi avaliada.
 
 ### Etapa 8 — Testes e finalização
 
@@ -523,14 +549,15 @@ Objetivo: validar a experiência integrada.
 Tarefas:
 
 - [ ] Testar todas as seções.
-- [ ] Testar a rolagem completa.
-- [ ] Testar a navegação por âncoras.
-- [ ] Testar o retorno da rolagem.
+- [ ] Testar a rolagem normal, incluindo progressão e retorno.
+- [ ] Testar navegação direta por âncoras e pelo menu.
+- [ ] Redimensionar a janela durante e após a navegação.
+- [ ] Recarregar a página posicionada em diferentes seções e verificar a sincronização da cena.
 - [ ] Testar o menu.
 - [ ] Testar o seletor de conhecimentos.
 - [ ] Testar diferentes resoluções.
 - [ ] Testar movimento reduzido.
-- [ ] Testar fallback.
+- [ ] Testar a alternativa quando WebGL estiver indisponível.
 - [ ] Verificar o console.
 - [ ] Corrigir regressões.
 
@@ -555,8 +582,9 @@ Esses requisitos deverão ser considerados desde a primeira implementação, e n
 - A experiência 3D será decorativa e complementar.
 - O canvas não deverá receber foco desnecessariamente.
 - Os controles existentes deverão continuar acessíveis.
-- O movimento reduzido deverá simplificar ou desativar animações.
+- O movimento reduzido, identificado por `prefers-reduced-motion`, deverá simplificar ou desativar animações.
 - A ausência de WebGL não poderá impedir a navegação.
+- A camada visual não poderá bloquear cliques nem seleção de texto.
 
 ### 8.2. Desempenho
 
@@ -567,6 +595,8 @@ Esses requisitos deverão ser considerados desde a primeira implementação, e n
 - Ajustar a resolução do renderizador conforme o dispositivo.
 - Liberar geometrias, materiais e texturas quando deixarem de ser utilizados.
 - Avaliar o impacto da cena no carregamento inicial.
+- Medir e registrar FPS, uso de CPU/GPU, memória e carregamento nos dispositivos testados; não definir metas numéricas antes das medições.
+- Considerar a simplificação ou desativação da cena em dispositivos limitados.
 
 ---
 
@@ -575,17 +605,16 @@ Esses requisitos deverão ser considerados desde a primeira implementação, e n
 Durante todo o desenvolvimento:
 
 1. Preservar HTML, CSS e JavaScript como tecnologias principais.
-2. Não migrar o projeto para frameworks de interface.
-3. Preservar a estrutura atual das seções.
-4. Preservar IDs e classes utilizados pela interface.
-5. Não remover funcionalidades existentes.
-6. Não alterar conteúdos sem necessidade ou decisão aprovada.
-7. Não criar novas seções apenas para acomodar a experiência 3D.
-8. Não substituir arquivos inteiros quando uma alteração localizada resolver.
-9. Não implementar etapas futuras antes da validação da etapa atual.
-10. Não instalar dependências sem justificativa técnica.
-11. Não deixar a experiência 3D impedir o funcionamento do portfólio.
-12. Não marcar etapas como concluídas sem implementação e testes.
+2. Manter a cena 3D complementar ao conteúdo, sem substituir a estrutura atual do portfólio.
+3. Não migrar o projeto para React, Vue, Angular, Next.js ou outro framework de interface.
+4. Preservar todas as seções, textos, links, IDs, classes e funcionalidades existentes.
+5. Não criar novas seções nem antecipar funcionalidades fora do escopo deste planejamento.
+6. Não alterar conteúdo sem necessidade ou decisão aprovada.
+7. Não substituir arquivos inteiros quando uma alteração localizada resolver.
+8. Não implementar etapas futuras antes da validação da etapa atual.
+9. Não instalar dependências sem justificativa técnica e decisão registrada; nesta tarefa de planejamento, não instalar dependências.
+10. Não deixar a experiência 3D impedir o funcionamento do portfólio.
+11. Não marcar etapas como concluídas sem implementação e testes.
 
 ---
 
@@ -627,13 +656,15 @@ As decisões abaixo deverão ser preenchidas durante o desenvolvimento:
 
 | Decisão | Situação |
 |---|---|
-| Biblioteca de renderização | Pendente |
+| Alternativa de renderização escolhida (incluindo decisão sobre Three.js) | Pendente |
 | Estratégia de composição da cena | Pendente |
-| Posicionamento da cena | Pendente |
-| Integração com scroll | Pendente |
+| Estratégia de posicionamento da cena | Pendente |
+| Estratégia de integração progressiva com scroll | Pendente |
 | Estratégia de carregamento | Pendente |
-| Fallback sem WebGL | Pendente |
-| Otimização para dispositivos móveis | Pendente |
+| Estratégia de fallback | Pendente |
+| Ajustes de desempenho realizados e resultados medidos | Pendente |
+
+Manter todos os campos pendentes até que as decisões sejam documentadas e, quando aplicável, as implementações e medições correspondentes tenham sido realizadas.
 
 ### 11.3. Registro de validações
 
