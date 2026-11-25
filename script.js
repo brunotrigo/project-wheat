@@ -1,169 +1,175 @@
-const learningAreas = [
+const areasDeAprendizagem = [
   {
-    title: "Frontend",
-    icon: "▤",
-    skills: [
+    titulo: "Frontend",
+    icone: "▤",
+    habilidades: [
       {
-        name: "HTML",
-        summary:
+        nome: "HTML",
+        resumo:
           "Linguagem de marcação que organiza o conteúdo de uma página: títulos, textos, links, imagens e formulários.",
-        project:
+        projeto:
           "Project Wheat — estrutura das seções e navegação do portfólio.",
-        href: "#inicio",
+        endereco: "#inicio",
       },
       {
-        name: "CSS",
-        summary:
+        nome: "CSS",
+        resumo:
           "Define a aparência das páginas, incluindo cores, tipografia, espaçamento e adaptação a diferentes telas.",
-        project:
+        projeto:
           "Project Wheat — identidade visual dourada e layouts para telas menores.",
-        href: "#inicio",
+        endereco: "#inicio",
       },
       {
-        name: "JavaScript",
-        summary:
+        nome: "JavaScript",
+        resumo:
           "Linguagem que adiciona lógica e interatividade às páginas, respondendo às ações de quem navega.",
-        project:
+        projeto:
           "Project Wheat — seleção de áreas de estudo e menu para celular.",
-        href: "#aprendendo",
+        endereco: "#aprendendo",
       },
       {
-        name: "React",
-        summary:
+        nome: "React",
+        resumo:
           "Biblioteca para construir interfaces com componentes reutilizáveis e atualizar a tela quando os dados mudam.",
-        project:
+        projeto:
           "Project Wheat — versão online com seleção de habilidades em componentes.",
-        href: "#aprendendo",
+        endereco: "#aprendendo",
       },
     ],
   },
   {
-    title: "Backend",
-    icon: "◫",
-    skills: [
+    titulo: "Backend",
+    icone: "◫",
+    habilidades: [
       {
-        name: "Node.js",
-        summary:
+        nome: "Node.js",
+        resumo:
           "Ambiente que executa JavaScript fora do navegador, usado para construir serviços e aplicações no servidor.",
       },
       {
-        name: "APIs",
-        summary:
+        nome: "APIs",
+        resumo:
           "Interfaces que permitem a comunicação entre sistemas, com solicitações e respostas de dados.",
       },
       {
-        name: "Banco de Dados",
-        summary:
+        nome: "Banco de Dados",
+        resumo:
           "Sistemas que organizam, armazenam e permitem consultar informações de uma aplicação.",
       },
     ],
   },
   {
-    title: "Cloud",
-    icon: "☁",
-    skills: [
+    titulo: "Cloud",
+    icone: "☁",
+    habilidades: [
       {
-        name: "Azure",
-        summary:
+        nome: "Azure",
+        resumo:
           "Plataforma de nuvem da Microsoft com serviços para hospedar aplicações, armazenar dados e gerenciar infraestrutura.",
       },
     ],
   },
   {
-    title: "Inteligência artificial",
-    icon: "✦",
-    skills: [
+    titulo: "Inteligência artificial",
+    icone: "✦",
+    habilidades: [
       {
-        name: "OpenAI",
-        summary:
+        nome: "OpenAI",
+        resumo:
           "Ferramentas e modelos de inteligência artificial que podem ser integrados a aplicações para trabalhar com texto e outros conteúdos.",
       },
     ],
   },
   {
-    title: "Automação",
-    icon: "⌘",
-    skills: [
+    titulo: "Automação",
+    icone: "⌘",
+    habilidades: [
       {
-        name: "Scripts",
-        summary:
+        nome: "Scripts",
+        resumo:
           "Pequenos programas que executam sequências de tarefas para reduzir trabalho manual e repetitivo.",
       },
       {
-        name: "Fluxos",
-        summary:
+        nome: "Fluxos",
+        resumo:
           "Sequências de etapas, condições e ações que organizam a execução automática de um processo.",
       },
       {
-        name: "Integrações",
-        summary:
+        nome: "Integrações",
+        resumo:
           "Conexões entre ferramentas e serviços para trocar informações e executar tarefas em conjunto.",
       },
     ],
   },
 ];
-const menuToggle = document.querySelector(".menu-toggle");
+const botaoMenu = document.querySelector(".menu-toggle");
 const menu = document.querySelector("#menu");
-function setMenu(open) {
-  if (!menu || !menuToggle) return;
-  menu.classList.toggle("is-open", open);
-  menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.textContent = open ? "Fechar" : "Menu";
+
+function definirMenu(aberto) {
+  if (!menu || !botaoMenu) return;
+  menu.classList.toggle("is-open", aberto);
+  botaoMenu.setAttribute("aria-expanded", String(aberto));
+  botaoMenu.textContent = aberto ? "Fechar" : "Menu";
 }
-menuToggle?.addEventListener("click", () =>
-  setMenu(menuToggle.getAttribute("aria-expanded") !== "true"),
+
+botaoMenu?.addEventListener("click", () =>
+  definirMenu(botaoMenu.getAttribute("aria-expanded") !== "true"),
 );
-menu
-  ?.querySelectorAll("a")
-  .forEach((link) => link.addEventListener("click", () => setMenu(false)));
-const select = document.querySelector("#learning-area");
-const summary = document.querySelector(".learn__summary");
-const list = document.querySelector(".learn__list");
-function element(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text) node.textContent = text;
-  return node;
+
+menu?.querySelectorAll("a")
+  .forEach((link) => link.addEventListener("click", () => definirMenu(false)));
+const seletor = document.querySelector("#learning-area");
+const resumo = document.querySelector(".learn__summary");
+const lista = document.querySelector(".learn__list");
+function criarElemento(tipoTag, nomeClasse, texto) {
+  const elemento = document.createElement(tipoTag);
+  if (nomeClasse) elemento.className = nomeClasse;
+  if (texto) elemento.textContent = texto;
+  return elemento;
 }
-function renderLearning() {
-  const area = learningAreas.find((item) => item.title === select?.value);
-  if (!area || !summary || !list) return;
-  const skills = element("ul", "learn__skills");
-  skills.setAttribute("aria-label", `Habilidades de ${area.title}`);
-  area.skills.forEach((skill) => skills.append(element("li", "", skill.name)));
-  summary.replaceChildren(element("h3", "", area.title), skills);
-  list.setAttribute("aria-label", `Detalhes de ${area.title}`);
-  list.replaceChildren(
-    ...area.skills.map((skill) => {
-      const card = element("article", "learn__card");
-      card.setAttribute("aria-label", skill.name);
-      const head = element("div", "learn__card-head");
-      const name = element("div", "learn__card-name");
-      const icon = element("span", "learn__icon", area.icon);
-      icon.setAttribute("aria-hidden", "true");
-      name.append(icon, element("h3", "learn__title", skill.name));
-      head.append(name, element("span", "learn__status", "Em estudo"));
-      const detail = element("dl", "learn__detail");
-      const level = element("div", "");
-      level.append(
-        element("dt", "", "Meu nível"),
-        element("dd", "", "A definir"),
+
+
+function mostrarAprendizagem() {
+  const area = areasDeAprendizagem.find((item) => item.titulo === seletor?.value);
+  if (!area || !resumo || !lista) return;
+  const habilidades = criarElemento("ul", "learn__skills");
+  habilidades.setAttribute("aria-label", `Habilidades de ${area.titulo}`);
+  area.habilidades.forEach((habilidade) =>
+    habilidades.append(criarElemento("li", "", habilidade.nome)),
+  );
+  resumo.replaceChildren(criarElemento("h3", "", area.titulo), habilidades);
+  lista.setAttribute("aria-label", `Detalhes de ${area.titulo}`);
+  lista.replaceChildren(
+    ...area.habilidades.map((habilidade) => {
+      const card = criarElemento("article", "learn__card");
+      card.setAttribute("aria-label", habilidade.nome);
+      const cabecalho = criarElemento("div", "learn__card-head");
+      const nome = criarElemento("div", "learn__card-name");
+      const icone = criarElemento("span", "learn__icon", area.icone);
+      icone.setAttribute("aria-hidden", "true");
+      nome.append(icone, criarElemento("h3", "learn__title", habilidade.nome));
+      cabecalho.append(nome, criarElemento("span", "learn__status", "Em estudo"));
+      const detalhes = criarElemento("dl", "learn__detail");
+      const nivel = criarElemento("div", "");
+      nivel.append(
+        criarElemento("dt", "", "Meu nível"),
+        criarElemento("dd", "", "A definir"),
       );
-      const practice = element("div", "");
-      const example = element("dd", "");
-      if (skill.project && skill.href) {
-        const link = element("a", "learn__project", skill.project + " ↗");
-        link.href = skill.href;
-        example.append(link);
+      const pratica = criarElemento("div", "");
+      const exemplo = criarElemento("dd", "");
+      if (habilidade.projeto && habilidade.endereco) {
+        const link = criarElemento("a", "learn__project", habilidade.projeto + " ↗");
+        link.href = habilidade.endereco;
+        exemplo.append(link);
       } else {
-        example.textContent = "Projeto ainda não informado.";
+        exemplo.textContent = "Projeto ainda não informado.";
       }
-      practice.append(element("dt", "", "Na prática"), example);
-      detail.append(level, practice);
-      card.append(head, element("p", "card__text", skill.summary), detail);
+      pratica.append(criarElemento("dt", "", "Na prática"), exemplo);
+      detalhes.append(nivel, pratica);
+      card.append(cabecalho, criarElemento("p", "card__text", habilidade.resumo), detalhes);
       return card;
     }),
   );
 }
-select?.addEventListener("change", renderLearning);
-renderLearning();
+seletor?.addEventListener("change", mostrarAprendizagem);
+mostrarAprendizagem();
