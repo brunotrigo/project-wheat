@@ -339,16 +339,15 @@ body.bt,
   display: flex;
   align-items: center;
 }
-.hero__img {
+.hero__video {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
   width: 62%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: right center;
-  mask-image: linear-gradient(to right, transparent, #000 38%);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 38%);
+  pointer-events: none;
 }
 .hero__content {
   position: relative;
@@ -965,7 +964,7 @@ body.bt,
     grid-template-columns: repeat(2, 1fr);
     row-gap: 48px;
   }
-  .hero__img {
+  .hero__video {
     width: 100%;
     opacity: 0.35;
   }
